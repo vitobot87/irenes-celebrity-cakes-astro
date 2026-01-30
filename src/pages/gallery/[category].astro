@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const base = import.meta.env.BASE_URL;
+
+const categoryData: Record<string, { name: string; description: string }> = {
+  wedding: { name: "Wedding Cakes", description: "Elegant multi-tier masterpieces for your special day" },
+  birthday: { name: "Birthday Cakes", description: "Celebrate another year with a custom creation" },
+  custom: { name: "Custom Designs", description: "Unique cakes tailored to your vision" },
+  anniversary: { name: "Anniversary Cakes", description: "Celebrate milestones with timeless elegance" },
+  babyshower: { name: "Baby Shower Cakes", description: "Welcome the little one in sweet style" },
+  baptism: { name: "Baptism Cakes", description: "Blessed celebrations deserve beautiful cakes" },
+  bridal: { name: "Bridal Shower Cakes", description: "Elegant treats for the bride-to-be" },
+  communion: { name: "Communion Cakes", description: "Sacred celebrations with heavenly cakes" },
+  confirmation: { name: "Confirmation Cakes", description: "Mark this important milestone" },
+  cupcakes: { name: "Cupcakes", description: "Perfect individual treats for any occasion" },
+  doll: { name: "Doll Cakes", description: "Whimsical princess and doll-themed creations" },
+  edible: { name: "Edible Image Cakes", description: "Custom photo cakes for personalized celebrations" },
+  engagement: { name: "Engagement Cakes", description: "Celebrate saying yes with something sweet" },
+  pastries: { name: "Pastries & Desserts", description: "Authentic Italian treats made fresh daily" },
+  desserts: { name: "Seasonal Desserts", description: "Holiday and seasonal specials" },
+};
+
+export function getStaticPaths() {
+  const cats = ["wedding", "birthday", "custom", "anniversary", "babyshower", "baptism", "bridal", "communion", "confirmation", "cupcakes", "doll", "edible", "engagement", "pastries", "desserts"];
+  return cats.map((category) => ({
+    params: { category },
+  }));
+}
+
+const { category } = Astro.params;
+const cat = categoryData[category as string];
+
+// Read images from the gallery folder
+const galleryDir = path.join(process.cwd(), 'public', 'gallery', category as string);
+let images: string[] = [];
+try {
+  images = fs.readdirSync(galleryDir)
+    .filter(f => /\.(png|jpg|jpeg|webp)$/i.test(f))
+    .sort();
+} catch (e) {
+  images = [];
+}
+---
+
+<Layout title={`${cat?.name || 'Gallery'} | Irene's Celebrity Cakes`}>
+  <main class="min-h-screen bg-amber-50 pt-24">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href={base} class="flex items-center gap-3">
+            <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
+            <span class="font-semibold text-rose-800">Irene's Celebrity Cakes</span>
+          </a>
+          <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-lg text-sm font-medium">
+            (905) 624-5545
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <div class="mb-8">
+        <a href={`${base}gallery/`} class="text-rose-800 hover:underline">← Back to Gallery</a>
+      </div>
+
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-rose-800 mb-4">{cat?.name}</h1>
+        <p class="text-gray-600 text-lg">{cat?.description}</p>
+        <p class="text-amber-600 mt-2">{images.length} photos</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {images.map((img) => (
+          <div class="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+            <img 
+              src={`${base}gallery/${category}/${img}`} 
+              alt={cat?.name} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+      {images.length === 0 && (
+        <div class="text-center py-12 text-gray-500">
+          No images found in this category.
+        </div>
+      )}
+    </div>
+  </main>
+</Layout>

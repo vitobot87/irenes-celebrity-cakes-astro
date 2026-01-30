@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const categories = [
+  { id: "wedding", name: "Wedding Cakes", description: "Elegant multi-tier masterpieces", count: 32, image: "WDC_007.png" },
+  { id: "birthday", name: "Birthday Cakes", description: "Celebrate with a custom creation", count: 60, image: "BDC_012.png" },
+  { id: "custom", name: "Custom Designs", description: "Unique cakes tailored to your vision", count: 30, image: "CCD_005.png" },
+  { id: "anniversary", name: "Anniversary Cakes", description: "Celebrate milestones with elegance", count: 20, image: "AC_005.png" },
+  { id: "babyshower", name: "Baby Shower Cakes", description: "Welcome the little one in style", count: 27, image: "BYC_010.png" },
+  { id: "baptism", name: "Baptism Cakes", description: "Blessed celebrations", count: 22, image: "BPC_005.png" },
+  { id: "bridal", name: "Bridal Shower Cakes", description: "Elegant treats for the bride-to-be", count: 22, image: "BSC_008.png" },
+  { id: "communion", name: "Communion Cakes", description: "Sacred celebrations", count: 19, image: "CMC_005.png" },
+  { id: "confirmation", name: "Confirmation Cakes", description: "Mark this milestone", count: 15, image: "CFC_005.png" },
+  { id: "cupcakes", name: "Cupcakes", description: "Perfect individual treats", count: 12, image: "CCC_003.png" },
+  { id: "doll", name: "Doll Cakes", description: "Whimsical princess creations", count: 15, image: "DLC_005.png" },
+  { id: "edible", name: "Edible Image Cakes", description: "Custom photo cakes", count: 20, image: "EIC_008.png" },
+  { id: "engagement", name: "Engagement Cakes", description: "Celebrate saying yes", count: 23, image: "EGC_010.png" },
+  { id: "pastries", name: "Pastries & Desserts", description: "Authentic Italian treats", count: 11, image: "d_003.jpg" },
+  { id: "desserts", name: "Seasonal Desserts", description: "Holiday specials", count: 13, image: "easter2.png" },
+];
+---
+
+<Layout title="Gallery | Irene's Celebrity Cakes">
+  <main class="min-h-screen bg-amber-50 pt-24">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href={base} class="flex items-center gap-3">
+            <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
+            <span class="font-semibold text-rose-800">Irene's Celebrity Cakes</span>
+          </a>
+          <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-lg text-sm font-medium">
+            (905) 624-5545
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-rose-800 mb-4">Our Gallery</h1>
+        <p class="text-gray-600 text-lg">Browse 330+ handcrafted creations across 15 categories</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {categories.map((cat) => (
+          <a href={`${base}gallery/${cat.id}/`} class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+            <div class="h-48 overflow-hidden">
+              <img 
+                src={`${base}gallery/${cat.id}/${cat.image}`} 
+                alt={cat.name} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h2 class="text-xl font-bold text-rose-800 mb-2">{cat.name}</h2>
+              <p class="text-gray-600 mb-2">{cat.description}</p>
+              <p class="text-sm text-amber-600 font-medium">{cat.count} photos →</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href={base} class="text-rose-800 hover:underline">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+</Layout>

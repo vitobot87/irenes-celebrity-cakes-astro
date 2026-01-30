@@ -38,7 +38,7 @@ const testimonials = [
           <nav class="hidden md:flex items-center gap-8">
             <a href="#about" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">About</a>
             <a href="#services" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Services</a>
-            <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Gallery</a>
+            <a href={`${base}gallery/`} class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Full Gallery</a>
             <a href="#reviews" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Reviews</a>
             <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Contact</a>
           </nav>
@@ -182,7 +182,10 @@ const testimonials = [
         </div>
 
         <div class="text-center">
-          <p class="text-gray-600 mb-4">This is just a sample of our work. We have 330+ creations in our full gallery!</p>
+          <p class="text-gray-600 mb-4">This is just a sample of our work.</p>
+          <a href={`${base}gallery/`} class="inline-flex items-center justify-center bg-rose-800 hover:bg-rose-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+            View Full Gallery (330+ Photos) →
+          </a>
         </div>
       </div>
     </section>
