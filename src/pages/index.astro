@@ -4,127 +4,133 @@ import Layout from '../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL;
 
 const services = [
-  { name: "Wedding Cakes", description: "Breathtaking multi-tier masterpieces for your special day", icon: "💒" },
-  { name: "Birthday Cakes", description: "Custom designs from elegant to whimsical", icon: "🎂" },
-  { name: "Celebrity Events", description: "Red-carpet worthy cakes for VIP occasions", icon: "⭐" },
-  { name: "Corporate Events", description: "Branded cakes and dessert tables for businesses", icon: "🏢" },
-  { name: "Custom Sculptures", description: "Edible art that defies imagination", icon: "🎨" },
-  { name: "Cupcake Towers", description: "Beautiful displays for any celebration", icon: "🧁" },
+  { title: "Wedding Cakes", description: "From classic elegance to modern masterpieces, we design the perfect centerpiece for your special day.", image: `${base}gallery/wedding/WDC_000.png` },
+  { title: "Custom Celebration Cakes", description: "Milestone birthdays, baby showers, corporate events - we create custom cakes that capture the spirit of your celebration.", image: `${base}gallery/birthday/BDC_012.png` },
+  { title: "Italian Pastries & Desserts", description: "Step into our bakery and be transported to Italy. Authentic cannoli, sfogliatelle, tiramisu, and traditional Italian cookies.", image: `${base}gallery/pastries/d_003.jpg` },
 ];
+
+const galleryImages = {
+  wedding: ["WDC_000.png", "WDC_003.png", "WDC_007.png", "WDC_010.png", "WDC_015.png", "WDC_020.png"],
+  birthday: ["BDC_005.png", "BDC_012.png", "BDC_025.png", "BDC_030.png", "BDC_045.png", "BDC_050.png"],
+  custom: ["CCD_000.png", "CCD_005.png", "CCD_010.png", "CCD_015.png", "CCD_020.png", "CCD_025.png"],
+};
 
 const testimonials = [
-  { text: "Irene created the most stunning wedding cake I've ever seen. Our guests couldn't stop talking about it. The flavor matched the beauty perfectly!", author: "Sarah M.", event: "Wedding" },
-  { text: "When my husband wanted a cake shaped like his vintage Porsche, Irene delivered beyond our wildest dreams. It was almost too beautiful to eat!", author: "Jennifer L.", event: "Birthday" },
-  { text: "We've used Irene for three corporate galas now. Every cake is a showstopper that gets featured on social media. She's our go-to for luxury events.", author: "David K.", event: "Corporate Event" },
-];
-
-const galleryImages = [
-  { src: "wedding-elegant.jpg", alt: "Elegant white wedding cake with sugar flowers" },
-  { src: "birthday-gold.jpg", alt: "Gold and black birthday cake" },
-  { src: "sculpted-shoe.jpg", alt: "Designer handbag sculpted cake" },
-  { src: "floral-garden.jpg", alt: "Garden-themed cake with cascading flowers" },
-  { src: "modern-geometric.jpg", alt: "Modern geometric wedding cake" },
-  { src: "celebration-tower.jpg", alt: "Cupcake tower for celebration" },
+  { quote: "I've been coming to Irene's Celebrity Cakes since the day she opened and I'm always pleased with the quality of her baking. My nieces have gotten their wedding cakes here and they were just spectacular.", author: "Lucy V.", rating: 5 },
+  { quote: "The service was 10/10. I had gotten quotes from 6 other bakeries but Irene and team were so accommodating and lovely to deal with! The cake photographed so well, it was a beautiful touch to our wedding.", author: "Recent Wedding Customer", rating: 5 },
+  { quote: "What a wonderful discovery. My visit to Irene's Celebrity Cake Shop exceeded all expectations. The pastries were absolutely delicious - you can tell they use quality ingredients and traditional recipes.", author: "Ramdas M.", rating: 5 },
 ];
 ---
 
-<Layout title="Irene's Celebrity Cakes | Luxury Custom Cakes Toronto">
-  <main class="min-h-screen">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div class="max-w-6xl mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
+<Layout title="Irene's Celebrity Cakes | Custom Cakes & Italian Pastries in Mississauga">
+  <main class="min-h-screen bg-amber-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16 sm:h-20">
           <div class="flex items-center gap-3">
-            <span class="text-3xl">🎂</span>
-            <span class="font-serif text-xl md:text-2xl font-semibold text-rose-700">Irene's Celebrity Cakes</span>
+            <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
+            <div class="hidden sm:block">
+              <h1 class="text-lg font-semibold text-rose-800">Irene's Celebrity Cakes</h1>
+              <p class="text-xs text-amber-600">Est. 2007</p>
+            </div>
           </div>
-          <div class="hidden md:flex items-center gap-8">
-            <a href="#about" class="text-neutral-600 hover:text-rose-600 transition-colors">About</a>
-            <a href="#services" class="text-neutral-600 hover:text-rose-600 transition-colors">Services</a>
-            <a href="#gallery" class="text-neutral-600 hover:text-rose-600 transition-colors">Gallery</a>
-            <a href="#contact" class="bg-rose-600 text-white px-5 py-2 rounded-full hover:bg-rose-700 transition-colors">Contact</a>
-          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a href="#about" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">About</a>
+            <a href="#services" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Services</a>
+            <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Gallery</a>
+            <a href="#reviews" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Reviews</a>
+            <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Contact</a>
+          </nav>
+          <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+            (905) 624-5545
+          </a>
         </div>
       </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-20" style="background: linear-gradient(135deg, #FDF8F3 0%, #FFE4E6 50%, #FEF3C7 100%);">
-      <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23000000&quot; fill-opacity=&quot;0.1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-      <div class="max-w-6xl mx-auto px-4 py-20">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-          <div class="flex-1 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <span>✨</span>
-              <span>Award-Winning Cake Artist</span>
-            </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-neutral-800 mb-6 leading-tight">
-              Where Dreams Become <span class="text-rose-600">Edible Art</span>
-            </h1>
-            <p class="text-lg md:text-xl text-neutral-600 mb-8 max-w-xl">
-              Creating extraordinary custom cakes for Toronto's most memorable celebrations. From intimate gatherings to star-studded events, every cake tells a story.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold px-8 py-4 rounded-full transition-colors text-lg shadow-lg shadow-rose-200">
-                Request a Consultation
-              </a>
-              <a href="#gallery" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-rose-600 font-semibold px-8 py-4 rounded-full transition-colors text-lg border-2 border-rose-200">
-                View Our Creations
-              </a>
-            </div>
+    <section class="relative pt-20 min-h-screen flex items-center">
+      <div class="absolute inset-0 z-0">
+        <img src={`${base}gallery/wedding/WDC_007.png`} alt="Elegant wedding cake" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 py-24">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Where Every Celebration Becomes Unforgettable
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
+            Mississauga's beloved Italian bakery crafting custom cakes and authentic pastries since 2007. With over 35 years of experience, we bring your sweetest visions to life.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="tel:+19056245545" class="inline-flex items-center justify-center bg-rose-800 hover:bg-rose-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+              Order Your Custom Cake
+            </a>
+            <a href="#contact" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+              Visit Our Bakery
+            </a>
           </div>
-          <div class="flex-1 relative">
-            <div class="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
-              <div class="absolute inset-0 bg-gradient-to-br from-rose-200 to-gold-200 rounded-full animate-pulse"></div>
-              <div class="absolute inset-4 bg-white rounded-full shadow-2xl flex items-center justify-center">
-                <div class="text-center">
-                  <div class="text-8xl mb-2">🎂</div>
-                  <p class="font-serif text-rose-600 text-lg">Crafted with Love</p>
-                </div>
-              </div>
-            </div>
+          <div class="mt-12 flex items-center gap-2">
+            <span class="text-amber-400 text-xl">★★★★★</span>
+            <span class="text-white font-medium">4.6/5</span>
+            <span class="text-gray-300">from 1,060+ Google Reviews</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-neutral-800 mb-4">Meet Irene</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-rose-400 to-gold-400 mx-auto"></div>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="w-64 h-64 rounded-full bg-gradient-to-br from-rose-100 to-gold-100 flex items-center justify-center flex-shrink-0">
-            <span class="text-7xl">👩‍🍳</span>
-          </div>
+    <section id="about" class="py-20 bg-amber-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p class="text-lg text-neutral-600 leading-relaxed mb-6">
-              With over 15 years of experience in cake artistry, Irene has transformed the Toronto cake scene with her innovative designs and impeccable attention to detail. Trained in Paris and mentored by world-renowned pastry chefs, she brings a unique blend of European elegance and modern creativity to every creation.
+            <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-6">Our Story</h2>
+            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+              For over 17 years, Irene's Celebrity Cakes has been the heart of celebrations across Mississauga and the GTA. What began as a passion for authentic Italian baking has blossomed into one of the most trusted names in custom cakes and pastries.
             </p>
-            <p class="text-lg text-neutral-600 leading-relaxed">
-              Her cakes have graced the tables of celebrity weddings, appeared on national television, and been featured in top bridal magazines. But what sets Irene apart is her personal touch — she works closely with each client to bring their vision to life, no matter how elaborate.
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+              With more than 35 years of experience in the craft, owner Irene brings the warmth of Italian tradition to every creation. From elaborate multi-tier wedding cakes to beloved family recipes passed down through generations, we believe that every celebration deserves something extraordinary.
             </p>
+            <div class="grid sm:grid-cols-3 gap-6">
+              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800">35+</div>
+                <div class="text-sm text-gray-500">Years Experience</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800">1,000+</div>
+                <div class="text-sm text-gray-500">Happy Customers</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800">4.6</div>
+                <div class="text-sm text-gray-500">Star Rating</div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img src={`${base}hero-pastries.png`} alt="Italian pastry display" class="rounded-2xl shadow-2xl w-full" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gradient-to-b from-cream to-rose-50">
-      <div class="max-w-6xl mx-auto px-4">
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-neutral-800 mb-4">Our Specialties</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-rose-400 to-gold-400 mx-auto mb-6"></div>
-          <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Every occasion deserves a cake as unique as you are</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">What We Offer</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">From elegant wedding cakes to authentic Italian pastries</p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-rose-100 group hover:-translate-y-1 transition-transform">
-              <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
-              <h3 class="text-xl font-serif font-semibold text-neutral-800 mb-2">{service.name}</h3>
-              <p class="text-neutral-600">{service.description}</p>
+            <div class="bg-amber-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div class="h-64 overflow-hidden">
+                <img src={service.image} alt={service.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-rose-800 mb-2">{service.title}</h3>
+                <p class="text-gray-600">{service.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -132,171 +138,142 @@ const galleryImages = [
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
+    <section id="gallery" class="py-20 bg-amber-50">
+      <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-neutral-800 mb-4">Our Creations</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-rose-400 to-gold-400 mx-auto mb-6"></div>
-          <p class="text-lg text-neutral-600">A glimpse of our recent masterpieces</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">Our Creations</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Browse our gallery of handcrafted cakes - each one made with love and attention to detail.</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((image, i) => (
-            <div class="aspect-square bg-gradient-to-br from-rose-100 to-gold-100 rounded-xl overflow-hidden group relative">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center p-4">
-                  <div class="text-6xl mb-2">{["🎂", "🧁", "🍰", "🎀", "💐", "✨"][i]}</div>
-                  <p class="text-neutral-600 text-sm">{image.alt}</p>
-                </div>
+
+        <!-- Wedding Cakes -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Wedding Cakes</h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {galleryImages.wedding.map((img) => (
+              <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                <img src={`${base}gallery/wedding/${img}`} alt="Wedding cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
-              <div class="absolute inset-0 bg-rose-600/0 group-hover:bg-rose-600/20 transition-colors"></div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <div class="text-center mt-10">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-rose-600 hover:text-rose-700 font-medium">
-            <span>Follow us on Instagram for more</span>
-            <span>→</span>
-          </a>
+
+        <!-- Birthday Cakes -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Birthday & Celebration Cakes</h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {galleryImages.birthday.map((img) => (
+              <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                <img src={`${base}gallery/birthday/${img}`} alt="Birthday cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Custom Cakes -->
+        <div class="mb-12">
+          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Custom Designs</h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {galleryImages.custom.map((img) => (
+              <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                <img src={`${base}gallery/custom/${img}`} alt="Custom cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-gray-600 mb-4">This is just a sample of our work. We have 330+ creations in our full gallery!</p>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-gradient-to-br from-rose-600 to-rose-700 text-white">
-      <div class="max-w-6xl mx-auto px-4">
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-rose-800">
+      <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">What Our Clients Say</h2>
-          <div class="w-24 h-1 bg-white/30 mx-auto"></div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">What Our Customers Say</h2>
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-amber-400 text-2xl">★★★★★</span>
+            <span class="text-white text-lg font-medium">4.6/5 from 1,060+ reviews on Google</span>
+          </div>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <div class="flex gap-1 text-gold-300 mb-4">★★★★★</div>
-              <p class="text-rose-100 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
-              <div>
-                <p class="text-white font-semibold">— {testimonial.author}</p>
-                <p class="text-rose-200 text-sm">{testimonial.event}</p>
-              </div>
+          {testimonials.map((t) => (
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+              <div class="text-amber-400 mb-4">{"★".repeat(t.rating)}</div>
+              <p class="text-gray-600 mb-6 italic">"{t.quote}"</p>
+              <p class="text-rose-800 font-semibold">— {t.author}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="py-20 bg-cream">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-neutral-800 mb-4">How It Works</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-rose-400 to-gold-400 mx-auto"></div>
-        </div>
-        <div class="grid md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">1</div>
-            <h3 class="font-serif font-semibold text-lg mb-2">Consultation</h3>
-            <p class="text-neutral-600">Share your vision, theme, and preferences with us</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-rose-200 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">2</div>
-            <h3 class="font-serif font-semibold text-lg mb-2">Design</h3>
-            <p class="text-neutral-600">We create custom sketches and flavor profiles</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-rose-300 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">3</div>
-            <h3 class="font-serif font-semibold text-lg mb-2">Tasting</h3>
-            <p class="text-neutral-600">Sample our delicious flavors and combinations</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-rose-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-white">4</div>
-            <h3 class="font-serif font-semibold text-lg mb-2">Delivery</h3>
-            <p class="text-neutral-600">We deliver and set up your perfect cake</p>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
-      <div class="max-w-4xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold text-neutral-800 mb-4">Let's Create Something Beautiful</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-rose-400 to-gold-400 mx-auto mb-6"></div>
-          <p class="text-lg text-neutral-600">Ready to discuss your dream cake? We'd love to hear from you!</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">Visit Our Bakery</h2>
+          <p class="text-gray-600 text-lg">Come see (and taste!) what makes us special</p>
         </div>
         <div class="grid md:grid-cols-2 gap-12">
           <div class="space-y-6">
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-xl text-xl">📞</div>
+              <div class="bg-rose-100 p-3 rounded-lg">📍</div>
               <div>
-                <h3 class="font-semibold text-neutral-800">Phone</h3>
-                <a href="tel:+14165551234" class="text-rose-600 hover:underline text-lg">(416) 555-1234</a>
+                <h3 class="font-semibold text-rose-800">Location</h3>
+                <p class="text-gray-600">1258 Eglinton Ave E<br/>Mississauga, ON</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-xl text-xl">✉️</div>
+              <div class="bg-rose-100 p-3 rounded-lg">📞</div>
               <div>
-                <h3 class="font-semibold text-neutral-800">Email</h3>
-                <a href="mailto:hello@irenescakes.com" class="text-rose-600 hover:underline">hello@irenescakes.com</a>
+                <h3 class="font-semibold text-rose-800">Phone</h3>
+                <a href="tel:+19056245545" class="text-rose-600 hover:underline text-lg">(905) 624-5545</a>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-xl text-xl">📍</div>
+              <div class="bg-rose-100 p-3 rounded-lg">🕐</div>
               <div>
-                <h3 class="font-semibold text-neutral-800">Studio</h3>
-                <p class="text-neutral-600">123 Cake Lane<br />Toronto, ON M5V 1A1</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-xl text-xl">🕐</div>
-              <div>
-                <h3 class="font-semibold text-neutral-800">Consultations</h3>
-                <p class="text-neutral-600">By Appointment Only<br />Tue–Sat: 10:00 AM – 6:00 PM</p>
+                <h3 class="font-semibold text-rose-800">Hours</h3>
+                <p class="text-gray-600">Monday: Closed<br/>Tue-Fri: 9AM - 6PM<br/>Sat-Sun: 9AM - 5PM</p>
               </div>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-rose-50 to-gold-50 rounded-2xl p-8 border border-rose-100">
-            <h3 class="font-serif text-xl font-semibold text-neutral-800 mb-4">Quick Inquiry</h3>
-            <form class="space-y-4">
-              <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-rose-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-200 outline-none transition" />
-              <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-rose-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-200 outline-none transition" />
-              <input type="text" placeholder="Event Date" class="w-full px-4 py-3 rounded-lg border border-rose-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-200 outline-none transition" />
-              <textarea placeholder="Tell us about your dream cake..." rows="4" class="w-full px-4 py-3 rounded-lg border border-rose-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-200 outline-none transition resize-none"></textarea>
-              <button type="submit" class="w-full bg-rose-600 text-white font-semibold py-3 rounded-lg hover:bg-rose-700 transition-colors">
-                Send Inquiry
-              </button>
-            </form>
+          <div class="bg-amber-50 rounded-xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.5!2d-79.62!3d43.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM3JzEyLjAiTiA3OcKwMzcnMTIuMCJX!5e0!3m2!1sen!2sca!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border: 0; min-height: 300px;"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-gold-100 to-rose-100">
+    <section class="py-16 bg-gradient-to-r from-rose-800 to-rose-900">
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-serif font-bold text-neutral-800 mb-4">Your Perfect Cake Awaits</h2>
-        <p class="text-neutral-600 mb-8 text-lg">Book your consultation today and let's create something unforgettable together.</p>
-        <a href="tel:+14165551234" class="inline-flex items-center gap-2 bg-rose-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-rose-700 transition-colors text-lg shadow-lg shadow-rose-200">
-          📞 Call (416) 555-1234
+        <h2 class="text-3xl font-bold text-white mb-4">Ready to Create Something Sweet?</h2>
+        <p class="text-rose-100 mb-8 text-lg">Call us today to discuss your custom cake or visit our bakery to browse our pastry selection.</p>
+        <a href="tel:+19056245545" class="inline-flex items-center gap-2 bg-white text-rose-800 font-bold px-8 py-4 rounded-lg hover:bg-amber-50 transition-colors text-lg">
+          📞 Call (905) 624-5545
         </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-neutral-900 text-neutral-400">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="py-8 bg-gray-900 text-gray-400">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
           <div class="flex items-center gap-3">
-            <span class="text-3xl">🎂</span>
-            <span class="text-white font-serif text-xl">Irene's Celebrity Cakes</span>
+            <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
+            <span class="text-white font-semibold">Irene's Celebrity Cakes</span>
           </div>
-          <div class="flex items-center gap-6">
-            <a href="https://instagram.com" class="hover:text-rose-400 transition-colors">Instagram</a>
-            <a href="https://facebook.com" class="hover:text-rose-400 transition-colors">Facebook</a>
-            <a href="https://pinterest.com" class="hover:text-rose-400 transition-colors">Pinterest</a>
-          </div>
-        </div>
-        <div class="border-t border-neutral-800 mt-8 pt-8 text-center text-sm">
-          <p>© {new Date().getFullYear()} Irene's Celebrity Cakes. All rights reserved. | Serving the Greater Toronto Area</p>
+          <p class="text-sm">© {new Date().getFullYear()} Irene's Celebrity Cakes. All rights reserved.</p>
         </div>
       </div>
     </footer>
