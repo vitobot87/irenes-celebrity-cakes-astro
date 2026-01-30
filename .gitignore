@@ -17,5 +17,5 @@ dist/
 .DS_Store
 Thumbs.db
 
-# npm
-package-lock.json
+# npm logs
+npm-debug.log*
