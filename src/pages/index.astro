@@ -23,28 +23,34 @@ const testimonials = [
 ---
 
 <Layout title="Irene's Celebrity Cakes | Custom Cakes & Italian Pastries in Mississauga">
-  <main class="min-h-screen bg-amber-50">
+  <main class="min-h-screen bg-amber-50 dark:bg-neutral-900">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-sm border-b border-amber-100 dark:border-neutral-700">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex items-center justify-between h-16 sm:h-20">
           <div class="flex items-center gap-3">
             <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
             <div class="hidden sm:block">
-              <h1 class="text-lg font-semibold text-rose-800">Irene's Celebrity Cakes</h1>
-              <p class="text-xs text-amber-600">Est. 2007</p>
+              <h1 class="text-lg font-semibold text-rose-800 dark:text-rose-300">Irene's Celebrity Cakes</h1>
+              <p class="text-xs text-amber-600 dark:text-amber-400">Est. 2007</p>
             </div>
           </div>
           <nav class="hidden md:flex items-center gap-8">
-            <a href="#about" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">About</a>
-            <a href={`${base}menu/`} class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Menu</a>
-            <a href={`${base}gallery/`} class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Gallery</a>
-            <a href="#reviews" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Reviews</a>
-            <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-rose-800 transition-colors">Contact</a>
+            <a href="#about" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300 transition-colors">About</a>
+            <a href={`${base}menu/`} class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300 transition-colors">Menu</a>
+            <a href={`${base}gallery/`} class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300 transition-colors">Gallery</a>
+            <a href="#reviews" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300 transition-colors">Reviews</a>
+            <a href="#contact" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300 transition-colors">Contact</a>
           </nav>
-          <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-            (905) 624-5545
-          </a>
+          <div class="flex items-center gap-3">
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-amber-100 dark:bg-neutral-700 hover:bg-amber-200 dark:hover:bg-neutral-600 transition-colors" aria-label="Toggle dark mode">
+              <span class="dark:hidden">🌙</span>
+              <span class="hidden dark:inline">☀️</span>
+            </button>
+            <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 dark:bg-rose-700 dark:hover:bg-rose-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+              (905) 624-5545
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -81,29 +87,29 @@ const testimonials = [
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-amber-50">
+    <section id="about" class="py-20 bg-amber-50 dark:bg-neutral-900">
       <div class="max-w-7xl mx-auto px-4">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-6">Our Story</h2>
-            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+            <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 dark:text-rose-300 mb-6">Our Story</h2>
+            <p class="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed">
               For over 17 years, Irene's Celebrity Cakes has been the heart of celebrations across Mississauga and the GTA. What began as a passion for authentic Italian baking has blossomed into one of the most trusted names in custom cakes and pastries.
             </p>
-            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
               With more than 35 years of experience in the craft, owner Irene brings the warmth of Italian tradition to every creation. From elaborate multi-tier wedding cakes to beloved family recipes passed down through generations, we believe that every celebration deserves something extraordinary.
             </p>
             <div class="grid sm:grid-cols-3 gap-6">
-              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div class="text-3xl font-bold text-rose-800">35+</div>
-                <div class="text-sm text-gray-500">Years Experience</div>
+              <div class="text-center p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800 dark:text-rose-300">35+</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Years Experience</div>
               </div>
-              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div class="text-3xl font-bold text-rose-800">1,000+</div>
-                <div class="text-sm text-gray-500">Happy Customers</div>
+              <div class="text-center p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800 dark:text-rose-300">1,000+</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Happy Customers</div>
               </div>
-              <div class="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div class="text-3xl font-bold text-rose-800">4.6</div>
-                <div class="text-sm text-gray-500">Star Rating</div>
+              <div class="text-center p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-sm">
+                <div class="text-3xl font-bold text-rose-800 dark:text-rose-300">4.6</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Star Rating</div>
               </div>
             </div>
           </div>
@@ -115,21 +121,21 @@ const testimonials = [
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 bg-white dark:bg-neutral-800">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">What We Offer</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">From elegant wedding cakes to authentic Italian pastries</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 dark:text-rose-300 mb-4">What We Offer</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">From elegant wedding cakes to authentic Italian pastries</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div class="bg-amber-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div class="bg-amber-50 dark:bg-neutral-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div class="h-64 overflow-hidden">
                 <img src={service.image} alt={service.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-bold text-rose-800 mb-2">{service.title}</h3>
-                <p class="text-gray-600">{service.description}</p>
+                <h3 class="text-xl font-bold text-rose-800 dark:text-rose-300 mb-2">{service.title}</h3>
+                <p class="text-gray-600 dark:text-gray-300">{service.description}</p>
               </div>
             </div>
           ))}
@@ -138,16 +144,16 @@ const testimonials = [
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-amber-50">
+    <section id="gallery" class="py-20 bg-amber-50 dark:bg-neutral-900">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">Our Creations</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto">Browse our gallery of handcrafted cakes - each one made with love and attention to detail.</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 dark:text-rose-300 mb-4">Our Creations</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">Browse our gallery of handcrafted cakes - each one made with love and attention to detail.</p>
         </div>
 
         <!-- Wedding Cakes -->
         <div class="mb-16">
-          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Wedding Cakes</h3>
+          <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6 text-center">Wedding Cakes</h3>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {galleryImages.wedding.map((img) => (
               <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
@@ -159,7 +165,7 @@ const testimonials = [
 
         <!-- Birthday Cakes -->
         <div class="mb-16">
-          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Birthday & Celebration Cakes</h3>
+          <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6 text-center">Birthday & Celebration Cakes</h3>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {galleryImages.birthday.map((img) => (
               <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
@@ -171,7 +177,7 @@ const testimonials = [
 
         <!-- Custom Cakes -->
         <div class="mb-12">
-          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Custom Designs</h3>
+          <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6 text-center">Custom Designs</h3>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {galleryImages.custom.map((img) => (
               <div class="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
@@ -182,8 +188,8 @@ const testimonials = [
         </div>
 
         <div class="text-center">
-          <p class="text-gray-600 mb-4">This is just a sample of our work.</p>
-          <a href={`${base}gallery/`} class="inline-flex items-center justify-center bg-rose-800 hover:bg-rose-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+          <p class="text-gray-600 dark:text-gray-300 mb-4">This is just a sample of our work.</p>
+          <a href={`${base}gallery/`} class="inline-flex items-center justify-center bg-rose-800 hover:bg-rose-900 dark:bg-rose-700 dark:hover:bg-rose-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
             View Full Gallery (330+ Photos) →
           </a>
         </div>
@@ -191,7 +197,7 @@ const testimonials = [
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-rose-800">
+    <section id="reviews" class="py-20 bg-rose-800 dark:bg-rose-900">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">What Our Customers Say</h2>
@@ -202,10 +208,10 @@ const testimonials = [
         </div>
         <div class="grid md:grid-cols-3 gap-8">
           {testimonials.map((t) => (
-            <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
               <div class="text-amber-400 mb-4">{"★".repeat(t.rating)}</div>
-              <p class="text-gray-600 mb-6 italic">"{t.quote}"</p>
-              <p class="text-rose-800 font-semibold">— {t.author}</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-6 italic">"{t.quote}"</p>
+              <p class="text-rose-800 dark:text-rose-300 font-semibold">— {t.author}</p>
             </div>
           ))}
         </div>
@@ -213,37 +219,37 @@ const testimonials = [
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20 bg-white dark:bg-neutral-800">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 mb-4">Visit Our Bakery</h2>
-          <p class="text-gray-600 text-lg">Come see (and taste!) what makes us special</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-800 dark:text-rose-300 mb-4">Visit Our Bakery</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg">Come see (and taste!) what makes us special</p>
         </div>
         <div class="grid md:grid-cols-2 gap-12">
           <div class="space-y-6">
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-lg">📍</div>
+              <div class="bg-rose-100 dark:bg-rose-900/30 p-3 rounded-lg">📍</div>
               <div>
-                <h3 class="font-semibold text-rose-800">Location</h3>
-                <p class="text-gray-600">1258 Eglinton Ave E<br/>Mississauga, ON</p>
+                <h3 class="font-semibold text-rose-800 dark:text-rose-300">Location</h3>
+                <p class="text-gray-600 dark:text-gray-300">1258 Eglinton Ave E<br/>Mississauga, ON</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-lg">📞</div>
+              <div class="bg-rose-100 dark:bg-rose-900/30 p-3 rounded-lg">📞</div>
               <div>
-                <h3 class="font-semibold text-rose-800">Phone</h3>
-                <a href="tel:+19056245545" class="text-rose-600 hover:underline text-lg">(905) 624-5545</a>
+                <h3 class="font-semibold text-rose-800 dark:text-rose-300">Phone</h3>
+                <a href="tel:+19056245545" class="text-rose-600 dark:text-rose-400 hover:underline text-lg">(905) 624-5545</a>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="bg-rose-100 p-3 rounded-lg">🕐</div>
+              <div class="bg-rose-100 dark:bg-rose-900/30 p-3 rounded-lg">🕐</div>
               <div>
-                <h3 class="font-semibold text-rose-800">Hours</h3>
-                <p class="text-gray-600">Monday: Closed<br/>Tue-Fri: 9AM - 6PM<br/>Sat-Sun: 9AM - 5PM</p>
+                <h3 class="font-semibold text-rose-800 dark:text-rose-300">Hours</h3>
+                <p class="text-gray-600 dark:text-gray-300">Monday: Closed<br/>Tue-Fri: 9AM - 6PM<br/>Sat-Sun: 9AM - 5PM</p>
               </div>
             </div>
           </div>
-          <div class="bg-amber-50 rounded-xl overflow-hidden">
+          <div class="bg-amber-50 dark:bg-neutral-700 rounded-xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.5!2d-79.62!3d43.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM3JzEyLjAiTiA3OcKwMzcnMTIuMCJX!5e0!3m2!1sen!2sca!4v1234567890"
               width="100%"
@@ -258,11 +264,11 @@ const testimonials = [
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-rose-800 to-rose-900">
+    <section class="py-16 bg-gradient-to-r from-rose-800 to-rose-900 dark:from-rose-900 dark:to-rose-950">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">Ready to Create Something Sweet?</h2>
         <p class="text-rose-100 mb-8 text-lg">Call us today to discuss your custom cake or visit our bakery to browse our pastry selection.</p>
-        <a href="tel:+19056245545" class="inline-flex items-center gap-2 bg-white text-rose-800 font-bold px-8 py-4 rounded-lg hover:bg-amber-50 transition-colors text-lg">
+        <a href="tel:+19056245545" class="inline-flex items-center gap-2 bg-white text-rose-800 font-bold px-8 py-4 rounded-lg hover:bg-amber-50 dark:hover:bg-gray-100 transition-colors text-lg">
           📞 Call (905) 624-5545
         </a>
       </div>

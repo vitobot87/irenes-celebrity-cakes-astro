@@ -37,29 +37,35 @@ const holidays = [
 ---
 
 <Layout title="Menu | Irene's Celebrity Cakes">
-  <main class="min-h-screen bg-amber-50">
+  <main class="min-h-screen bg-amber-50 dark:bg-neutral-900">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-sm border-b border-amber-100 dark:border-neutral-700">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex items-center justify-between h-16">
           <a href={base} class="flex items-center gap-3">
             <img src={`${base}logo.png`} alt="Irene's Celebrity Cakes" width="40" height="40" class="rounded-lg" />
-            <span class="font-semibold text-rose-800">Irene's Celebrity Cakes</span>
+            <span class="font-semibold text-rose-800 dark:text-rose-300">Irene's Celebrity Cakes</span>
           </a>
           <nav class="hidden md:flex items-center gap-6">
-            <a href={base} class="text-sm text-gray-600 hover:text-rose-800">Home</a>
-            <a href={`${base}menu/`} class="text-sm text-rose-800 font-medium">Menu</a>
-            <a href={`${base}gallery/`} class="text-sm text-gray-600 hover:text-rose-800">Gallery</a>
+            <a href={base} class="text-sm text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300">Home</a>
+            <a href={`${base}menu/`} class="text-sm text-rose-800 dark:text-rose-300 font-medium">Menu</a>
+            <a href={`${base}gallery/`} class="text-sm text-gray-600 dark:text-gray-300 hover:text-rose-800 dark:hover:text-rose-300">Gallery</a>
           </nav>
-          <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-lg text-sm font-medium">
-            (905) 624-5545
-          </a>
+          <div class="flex items-center gap-3">
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-amber-100 dark:bg-neutral-700 hover:bg-amber-200 dark:hover:bg-neutral-600 transition-colors" aria-label="Toggle dark mode">
+              <span class="dark:hidden">🌙</span>
+              <span class="hidden dark:inline">☀️</span>
+            </button>
+            <a href="tel:+19056245545" class="bg-rose-800 hover:bg-rose-900 dark:bg-rose-700 dark:hover:bg-rose-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+              (905) 624-5545
+            </a>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- Hero -->
-    <section class="pt-24 pb-12 bg-rose-800 text-white">
+    <section class="pt-24 pb-12 bg-rose-800 dark:bg-rose-900 text-white">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-4">Our Menu</h1>
         <p class="text-lg text-rose-100 max-w-2xl mx-auto">Every item made fresh with traditional Italian recipes and quality ingredients.</p>
@@ -67,12 +73,12 @@ const holidays = [
     </section>
 
     <!-- Quick Nav -->
-    <section class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b py-4">
+    <section class="sticky top-16 z-40 bg-white/95 dark:bg-neutral-800/95 backdrop-blur-sm border-b dark:border-neutral-700 py-4">
       <div class="max-w-7xl mx-auto px-4 flex gap-2 overflow-x-auto">
-        <a href="#pastries" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 text-rose-800 hover:bg-rose-800 hover:text-white">Pastries</a>
-        <a href="#cookies" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 text-rose-800 hover:bg-rose-800 hover:text-white">Cookies</a>
-        <a href="#cakes" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 text-rose-800 hover:bg-rose-800 hover:text-white">Cakes</a>
-        <a href="#holidays" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 text-rose-800 hover:bg-rose-800 hover:text-white">Holidays</a>
+        <a href="#pastries" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 hover:bg-rose-800 hover:text-white dark:hover:bg-rose-700">Pastries</a>
+        <a href="#cookies" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 hover:bg-rose-800 hover:text-white dark:hover:bg-rose-700">Cookies</a>
+        <a href="#cakes" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 hover:bg-rose-800 hover:text-white dark:hover:bg-rose-700">Cakes</a>
+        <a href="#holidays" class="px-4 py-2 rounded-full text-sm font-medium bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 hover:bg-rose-800 hover:text-white dark:hover:bg-rose-700">Holidays</a>
       </div>
     </section>
 
@@ -81,16 +87,16 @@ const holidays = [
       <div class="max-w-7xl mx-auto px-4">
         <div class="grid lg:grid-cols-3 gap-12">
           <div>
-            <h2 class="text-3xl font-bold text-rose-800 mb-4">Italian Pastries</h2>
-            <p class="text-gray-600 mb-6">Made fresh daily using authentic Italian recipes passed down through generations.</p>
+            <h2 class="text-3xl font-bold text-rose-800 dark:text-rose-300 mb-4">Italian Pastries</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">Made fresh daily using authentic Italian recipes passed down through generations.</p>
             <img src={`${base}gallery/desserts/d_003.jpg`} alt="Pastries" class="rounded-2xl shadow-lg w-full" />
           </div>
-          <div class="lg:col-span-2 bg-white rounded-2xl p-8 shadow-lg">
+          <div class="lg:col-span-2 bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
             <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2">
               {pastries.map((item) => (
-                <div class="flex items-center gap-2 py-2 border-b border-rose-100">
-                  <span class="w-2 h-2 rounded-full bg-rose-800"></span>
-                  <span class="text-gray-700">{item}</span>
+                <div class="flex items-center gap-2 py-2 border-b border-rose-100 dark:border-neutral-700">
+                  <span class="w-2 h-2 rounded-full bg-rose-800 dark:bg-rose-400"></span>
+                  <span class="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
@@ -100,28 +106,28 @@ const holidays = [
     </section>
 
     <!-- Cookies -->
-    <section id="cookies" class="py-16 bg-white">
+    <section id="cookies" class="py-16 bg-white dark:bg-neutral-800">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-rose-800 mb-8 text-center">Traditional Cookies</h2>
+        <h2 class="text-3xl font-bold text-rose-800 dark:text-rose-300 mb-8 text-center">Traditional Cookies</h2>
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-amber-50 rounded-2xl p-8">
-            <h3 class="text-2xl font-bold text-rose-800 mb-6">Almond Cookies</h3>
+          <div class="bg-amber-50 dark:bg-neutral-700 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6">Almond Cookies</h3>
             <div class="space-y-2">
               {almondCookies.map((item) => (
-                <div class="flex items-center gap-2 py-2 border-b border-rose-100">
-                  <span class="w-2 h-2 rounded-full bg-rose-800"></span>
-                  <span class="text-gray-700">{item}</span>
+                <div class="flex items-center gap-2 py-2 border-b border-rose-100 dark:border-neutral-600">
+                  <span class="w-2 h-2 rounded-full bg-rose-800 dark:bg-rose-400"></span>
+                  <span class="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div class="bg-amber-50 rounded-2xl p-8">
-            <h3 class="text-2xl font-bold text-rose-800 mb-6">Shortbread Cookies</h3>
+          <div class="bg-amber-50 dark:bg-neutral-700 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6">Shortbread Cookies</h3>
             <div class="space-y-2">
               {shortbreadCookies.map((item) => (
-                <div class="flex items-center gap-2 py-2 border-b border-rose-100">
-                  <span class="w-2 h-2 rounded-full bg-rose-800"></span>
-                  <span class="text-gray-700">{item}</span>
+                <div class="flex items-center gap-2 py-2 border-b border-rose-100 dark:border-neutral-600">
+                  <span class="w-2 h-2 rounded-full bg-rose-800 dark:bg-rose-400"></span>
+                  <span class="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
@@ -133,35 +139,35 @@ const holidays = [
     <!-- Cakes -->
     <section id="cakes" class="py-16">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-rose-800 mb-4 text-center">Cakes</h2>
-        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Build your perfect cake by choosing your sponge, cream filling, and size.</p>
+        <h2 class="text-3xl font-bold text-rose-800 dark:text-rose-300 mb-4 text-center">Cakes</h2>
+        <p class="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">Build your perfect cake by choosing your sponge, cream filling, and size.</p>
 
         <div class="grid lg:grid-cols-2 gap-8 mb-12">
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 class="text-2xl font-bold text-rose-800 mb-6">Sponge Options</h3>
+          <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6">Sponge Options</h3>
             <div class="space-y-2">
               {cakeSponges.map((item) => (
-                <div class="flex items-center gap-2 py-2 border-b border-rose-100">
-                  <span class="w-2 h-2 rounded-full bg-rose-800"></span>
-                  <span class="text-gray-700">{item}</span>
+                <div class="flex items-center gap-2 py-2 border-b border-rose-100 dark:border-neutral-700">
+                  <span class="w-2 h-2 rounded-full bg-rose-800 dark:bg-rose-400"></span>
+                  <span class="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 class="text-2xl font-bold text-rose-800 mb-6">Cream Fillings</h3>
+          <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6">Cream Fillings</h3>
             <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2">
               {cakeCreams.map((item) => (
-                <div class="flex items-center gap-2 py-2 border-b border-rose-100">
-                  <span class="w-2 h-2 rounded-full bg-rose-800"></span>
-                  <span class="text-gray-700">{item}</span>
+                <div class="flex items-center gap-2 py-2 border-b border-rose-100 dark:border-neutral-700">
+                  <span class="w-2 h-2 rounded-full bg-rose-800 dark:bg-rose-400"></span>
+                  <span class="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div class="bg-rose-800 rounded-2xl p-8 mb-12">
+        <div class="bg-rose-800 dark:bg-rose-900 rounded-2xl p-8 mb-12">
           <h3 class="text-2xl font-bold text-white mb-6 text-center">Signature Cake Types</h3>
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {cakeTypes.map((item) => (
@@ -172,13 +178,13 @@ const holidays = [
           </div>
         </div>
 
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="text-2xl font-bold text-rose-800 mb-6 text-center">Cake Sizes</h3>
+        <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold text-rose-800 dark:text-rose-300 mb-6 text-center">Cake Sizes</h3>
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {cakeSizes.map((item) => (
-              <div class="bg-amber-50 rounded-xl p-4 flex justify-between items-center">
-                <span class="font-semibold text-rose-800">{item.size}</span>
-                <span class="text-gray-500 text-sm">{item.serves}</span>
+              <div class="bg-amber-50 dark:bg-neutral-700 rounded-xl p-4 flex justify-between items-center">
+                <span class="font-semibold text-rose-800 dark:text-rose-300">{item.size}</span>
+                <span class="text-gray-500 dark:text-gray-400 text-sm">{item.serves}</span>
               </div>
             ))}
           </div>
@@ -187,18 +193,18 @@ const holidays = [
     </section>
 
     <!-- Holidays -->
-    <section id="holidays" class="py-16 bg-white">
+    <section id="holidays" class="py-16 bg-white dark:bg-neutral-800">
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-rose-800 mb-4 text-center">Holiday Specials</h2>
-        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Traditional pastries and creative festive creations for every celebration.</p>
+        <h2 class="text-3xl font-bold text-rose-800 dark:text-rose-300 mb-4 text-center">Holiday Specials</h2>
+        <p class="text-gray-600 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">Traditional pastries and creative festive creations for every celebration.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {holidays.map((holiday) => (
-            <div class="bg-amber-50 rounded-2xl p-6">
-              <h3 class="text-xl font-bold text-rose-800 mb-4">{holiday.name}</h3>
+            <div class="bg-amber-50 dark:bg-neutral-700 rounded-2xl p-6">
+              <h3 class="text-xl font-bold text-rose-800 dark:text-rose-300 mb-4">{holiday.name}</h3>
               <ul class="space-y-2">
                 {holiday.items.map((item) => (
-                  <li class="flex items-center gap-2 text-gray-700">
-                    <span class="w-1.5 h-1.5 rounded-full bg-rose-800"></span>
+                  <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-rose-800 dark:bg-rose-400"></span>
                     {item}
                   </li>
                 ))}
@@ -210,12 +216,12 @@ const holidays = [
     </section>
 
     <!-- CTA -->
-    <section class="py-16 bg-rose-800">
+    <section class="py-16 bg-rose-800 dark:bg-rose-900">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">Ready to Place an Order?</h2>
         <p class="text-rose-100 mb-8">For custom cakes, we recommend ordering at least a week in advance.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:+19056245545" class="bg-white text-rose-800 font-bold px-8 py-4 rounded-lg hover:bg-amber-50">
+          <a href="tel:+19056245545" class="bg-white text-rose-800 font-bold px-8 py-4 rounded-lg hover:bg-amber-50 dark:hover:bg-gray-100">
             Call (905) 624-5545
           </a>
           <a href={`${base}gallery/`} class="bg-white/10 text-white border border-white/30 font-semibold px-8 py-4 rounded-lg hover:bg-white/20">
